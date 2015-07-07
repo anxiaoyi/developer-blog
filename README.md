@@ -70,6 +70,9 @@ vi E37: No write since last change (add ! to override)
 - 1. Hit 'Esc' key twice, to exit editing mode
 - 2. Enter vi command mode by type in ':' and then type in 'q!' key and hit 'Enter' key to force quit vi without making any changes to the document.
 
+- Mac Commands
+Take a screenshot of part of your screen: command + shift + 4
+
 ------------------------SQLite---------------------
 
 - .table
@@ -102,5 +105,72 @@ sequence number | index name | unique: 1, not unique: 0
 - http://stackoverflow.com/questions/221294/how-do-you-get-a-timestamp-in-javascript
 -- new Date().getTime();
 
+- Xiaomi MIUI6 set icon number
+http://dev.xiaomi.com/doc/p=3904/index.html
+
+- Emacs Commands
+http://www.gnu.org/software/emacs/tour/
+
 ------------------------english---------------------
 frustrated
+
+------------------------Job Requirement----------------
+
+https://ie.linkedin.com/jobs2/view/56482765?trk=job_view_browse_map&trk=job_view_browse_map
+
+You will work as part of a team developing new apps, and sometimes supporting existing apps, across a wide range of different industries.
+
+ 
+
+There will be opportunities to work on different kinds of apps from project to project and often times the apps you work on will be for well known organisations and will have a large amount of users.
+
+
+
+
+Duties and responsibilities
+
+You will be expected to:
+
+consistently ship high quality code on time
+
+work with other senior developers, designers, QA specialists and our clients from project kickoff to delivery and beyond
+
+provide input and feedback on design, platform specific best practices and usability
+
+talk to our clients and their users and discuss and propose features
+
+explore new technologies and tools through R&D initiatives from time to time
+
+direct and mentor junior team members
+
+
+
+
+Qualifications & Experience required
+
+extensive experience shipping high quality code (ideally more than 5 years professional experience)
+
+examples of completed Android apps
+
+expertise with both Eclipse and Android studio
+
+expertise with source control (we use git)
+
+expertise building UIs using the latest design guidelines
+
+experience using testing frameworks
+
+knowledge of design patterns such as MVP and dependency injection
+
+experience in other languages and environments
+
+experience consuming web services in a mobile app
+
+experience creating novel user interfaces
+
+ability to work on your own initiative
+
+Java certification desirable
+
+https://nl.linkedin.com/jobs2/view/49881806?trk=job_view_browse_map&trk=job_view_browse_map
+- A/B testing

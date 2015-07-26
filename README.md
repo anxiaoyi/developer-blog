@@ -567,3 +567,141 @@ flex 看样子描述的是一种比例
 ## css框架
 
 ![css框架](https://github.com/anxiaoyi/developer-blog/blob/master/image/css-frame.png)
+
+# Redis data types
+
+## Redis keys
+二进制安全的:从字符串-->图片都可以当做key,空字符串也是合法的,一个比较好的key:`user:1000:followers`,`object-type:id`: `user:1000`,如果一个字段中由多个单词构成,可以使用`.`或者`-`:`comment:1234:reply-to`, `comment:1234:reply.to`
+
+## Redis Strings
+```
+set mykey somevalue
+get mykey
+
+set counter 100
+incr counter
+incr counter 50
+
+mset a 10 b 20 c 30
+mget a b c
+```
+
+## 修改和查询key
+`EXISTS`和`del`没有绑定到任何的类型上去:
+```
+set mykey hello
+exists mykey
+del mykey
+exists mykey
+```
+
+可以使用`type mykey`查看key存储成什么类型
+
+## Redis期限:生存时间
+```
+expire key 5
+```
+
+`PERSIST`移除期限,使key永久
+
+`TTL`查看剩余时间
+
+`PEXPIRE`, `PTTL` 设置毫秒
+
+## Redis Lists
+用Linked List实现
+
+`LPUSH`:在首部添加元素,`RPUSH`:在末尾添加元素,`LRANGE`:取出一定范围的元素.
+
+```
+rpush mylist A
+rpush mylist B
+lpush mylist first
+lrange mylist 0 -1
+```
+
+也可以添加多个:
+```
+rpush mylist 1 2 3 4 5 6 7 "foo bar"
+
+`RPOP`: 从队尾pop元素
+```
+
+Lists可以用来实现:生产者-消费者任务,或者记住社交媒体众最近更新的用户等:每次一旦用户发表了新的照片,我们将它的id用`LPUSH`添加到list中,当用户访问的时候,我们使用`LRANGE 0 9`便可以取得最新的10张照片
+
+我们也可以使用`LTRIM`用来只记住最近的N个条目,然后扔掉所有旧的数据,和`LRANGE`类似,只不过它会扔掉旧数据
+
+```
+ltrim mylist 0 2
+```
+
+`LRANGE`: O(N) 复杂度
+`LLEN`: 返回长度
+
+阻塞版本的`BRPOP`, `BLPOP`, 超过一定时间后就返回,否则等待,使用0来表示forever
+```
+brpop tasks 5
+```
+
+## 自动创建和移除key
+- 自动创建aggregate类型的key
+- 如果aggregate类型的数据位空,那么key自动destroy
+
+我们不能指定不同类型的key容纳不同的数据
+```
+set foo bar
+lpush foo 1 2 3
+type foo #string
+```
+
+## Redis Hashes
+键值对, Hashs-->Objects
+
+```
+hmset user:1000 username antirez birthyear 1977 verified 1
+hget user:1000 username
+hget user:1000 birthyear
+hgetall user:1000
+```
+
+`HMSET`:设置字段-值对
+`HGET`:取出一个单个的字段
+`HMGET`和`HGET`类似,但是返回的是数组
+
+```
+hmget user:1000 username birthday no-such-field
+```
+
+`HINCRBY`:增加字段对应的值
+```
+hincrby user:1000 birthyear 10
+```
+
+## Redis Sets
+容纳的是无序字符串
+```
+sadd myset 1 2 3
+sismember myset 3 #是否存在
+```
+
+Sets其实挺适合用来表示对象之间的关系的,不如,我们可以用sets来实现tag功能. 方法很简单:每个对象我们都有一个set, set内部呢包含了和这个对象相关联的tag的id,如下,为一个对象创建4个标签:
+```
+sadd news:1000:tags 1 2 5 77
+```
+为lists中的所有news打上新的标签,就是这个tag的所有对象:
+```
+sadd tag:1:news 1000
+sadd tag:2:news 1000
+```
+得到一个对象上的所有标签:
+```
+smembers news:1000:tags
+```
+注意,在上述操作中,我们假设你已经有一个hash,将tag id映射到了tag name中
+我们想要所有对象上有1,2,10,27标签的对象
+```
+sinter tag:1:news tag:2news tag:10:news tag:27:news
+```
+除此之外,你还可以:unions,difference,extract a random element
+
+`SPOP`移除的其实就是一个random element

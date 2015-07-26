@@ -41,6 +41,25 @@ C-x C-b
 C-x o
 - emacs query-replace
 M-Shift-%,键入想要搜索的关键词，回车，输入想要替换的词，回车，空格继续下一个匹配
+- go to end of the buffer
+Esc + >
+- go to start of the buffer
+Esc + <
+
+- vi delete charcater
+x
+- set tab = 4 space
+:set ts=4
+- start of the line
+0
+- end of the line
+$
+
+- ubuntu remove software
+apt-get remove xxx
+
+- python version
+python -V
 
 - 查找当前目录包括子目录下面所有文件中包含某个字符串的文件
 grep "你想要查找的字符串" -R .

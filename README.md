@@ -1,5 +1,3 @@
-# developer-blog
-
 - 下载文件
 curl -o sqlalachemy.pdf https://media.readthedocs.org/pdf/sqlalchemy/rel_1_0/sqlalchemy.pdf
 
@@ -111,6 +109,27 @@ http://dev.xiaomi.com/doc/p=3904/index.html
 - Emacs Commands
 http://www.gnu.org/software/emacs/tour/
 
+- Download Google App Apk
+http://apps.evozi.com/apk-downloader/
+
+- Real time user presence (the technical explanation)
+http://docs.intercom.io/FAQs/real-time-user-presence-the-technical-explanation
+
+- hasattr
+http://stackoverflow.com/questions/610883/how-to-know-if-an-object-has-an-attribute-in-python
+
+- comm
+https://blog.tallan.com/2014/11/03/bidirectional-communication-between-directives-and-controllers-in-angular/
+
+- emoji code
+http://apps.timwhitlock.info/emoji/tables/unicode
+
+- HTTP assess control (CORS)
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
+
+- js object oriented introduction
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript
+
 ------------------------english---------------------
 frustrated
 
@@ -120,12 +139,7 @@ https://ie.linkedin.com/jobs2/view/56482765?trk=job_view_browse_map&trk=job_view
 
 You will work as part of a team developing new apps, and sometimes supporting existing apps, across a wide range of different industries.
 
- 
-
 There will be opportunities to work on different kinds of apps from project to project and often times the apps you work on will be for well known organisations and will have a large amount of users.
-
-
-
 
 Duties and responsibilities
 
@@ -142,9 +156,6 @@ talk to our clients and their users and discuss and propose features
 explore new technologies and tools through R&D initiatives from time to time
 
 direct and mentor junior team members
-
-
-
 
 Qualifications & Experience required
 
@@ -174,3 +185,129 @@ Java certification desirable
 
 https://nl.linkedin.com/jobs2/view/49881806?trk=job_view_browse_map&trk=job_view_browse_map
 - A/B testing
+
+
+## Css learn
+
+### Why use css
+
+- Helps avoid duplication
+- Makes maintenance easier
+- Allows you to make a site-wide change in one place
+
+### Tag Selector
+
+```css
+p {
+  color:blue;
+  text-decoration:underline
+}
+
+strong {
+  color:red
+}
+```
+
+### Class Selectors And ID Selectors
+
+```css
+<p class="key" id="principal">
+
+.key {
+  color: green;
+}
+
+#principal {
+  font-weight: bolder;
+}
+
+p.key {
+  color: green;
+}
+``
+
+specific: tag selector < class selector < id selector
+
+### Pseudo-classes selectors
+
+A CSS pseudo-class is a keyword added to selectors that specifies a special state of the element to be selected.
+
+```css
+selector:pseudo-class {
+  property: value;
+}
+```
+
+- :link
+- :visited
+- :active
+- :hover
+- :focus
+- :first-child
+- :last-child
+- :nth-child
+- :nth-last-child
+- :nth-of-type
+- :first-of-type
+- :last-of-type
+- :empty
+- :target
+- :checked
+- :enabled
+- :disabled
+
+```css
+a.homepage:hover, a.homepage:focus, a.homepage:active {
+  background-color: #666;
+}
+```
+
+### Information: Selectors based on relationships
+
+Selector | Selects
+A E | Any E element that is a descendant of an A element (that is: a child, or a child of a child, etc.)
+A > E | Any E element that is a child (i.e. direct descendant) of an A element
+E:first-child | Any E element that is the first child of its parent
+B + E | Any E element that is the next sibling of a B element (that is: the next child of the same parent)
+
+You can also use the symbol * (asterisk) to mean "any element".
+
+```css
+div.menu-bar ul ul {
+  display: none;
+}
+
+div.menu-bar li:hover > ul {
+  display: block;
+}
+```
+
+### Readable css
+
+Comments
+
+```
+/* style for initial letter C in first paragraph */
+.carrot {
+  color:            orange;
+  text-decoration:  underline;
+  font-style:       italic;
+  }
+```
+
+Grouped selectors
+
+```
+/* color for headings */
+h1, h2, h3 {color: navy;}
+```
+
+## Web technology for developers
+
+https://developer.mozilla.org/en-US/docs/Web
+
+## JavaScript
+
+### Prototype-based programming
+
+Prototype-based programming is an OOP model that doesn't use classes, but rather accomplishes behavior reuse (equivalent to inheritance in class-based languages) by decorating (or expanding upon) existing prototype objects. (Also called classless, prototype-oriented, or instance-based programming.)

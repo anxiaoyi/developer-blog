@@ -164,6 +164,9 @@ http://redis.io/topics/data-types-intro
 - css examples
 http://www.w3.org/Style/Examples/007/center.en.html
 
+- responsive web design
+http://viewportsizes.com/
+
 ------------------------english---------------------
 frustrated
 
